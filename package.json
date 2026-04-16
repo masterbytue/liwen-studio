@@ -1,0 +1,17 @@
+{
+  "name": "liwen-studio",
+  "version": "1.0.0",
+  "description": "砺文工作室官网 - 学术论文润色与考研辅导",
+  "scripts": {
+    "start": "npx serve .",
+    "test": "echo 'Static site - no tests needed'"
+  },
+  "keywords": [
+    "论文润色",
+    "考研辅导",
+    "学术论文",
+    "教育服务"
+  ],
+  "author": "砺文工作室",
+  "license": "MIT"
+}
