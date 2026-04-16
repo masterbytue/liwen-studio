@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "砺文工作室官网 - 学术论文润色与考研辅导",
   "scripts": {
-    "start": "npx serve .",
-    "test": "echo 'Static site - no tests needed'"
+    "start": "npx serve ."
   },
   "keywords": [
     "论文润色",
