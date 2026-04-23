@@ -631,23 +631,23 @@
                 formMessage.classList.remove('hidden');
                 
                 try {
-                    const response = await fetch(`${API_BASE}/contacts/`, {
+                    const response = await fetch(`${API_BASE}/contacts`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(data)
                     });
-                    if (response.ok) {
+                    const result = await response.json();
+                    if (response.ok && result.success) {
                         formMessage.textContent = '感谢您的咨询！我们将尽快与您联系。';
                         formMessage.className = 'mt-4 text-center text-sm text-green-600';
                         contactForm.reset();
                     } else {
-                        formMessage.textContent = '提交失败，请稍后重试。';
+                        formMessage.textContent = result.error || '提交失败，请稍后重试。';
                         formMessage.className = 'mt-4 text-center text-sm text-red-600';
                     }
                 } catch (error) {
-                    formMessage.textContent = '感谢您的咨询！我们的客服将尽快与您联系。您也可以直接拨打 189-4716-9280 进行咨询。';
-                    formMessage.className = 'mt-4 text-center text-sm text-green-600';
-                    contactForm.reset();
+                    formMessage.textContent = '网络错误，请稍后重试。';
+                    formMessage.className = 'mt-4 text-center text-sm text-red-600';
                 }
                 setTimeout(() => { formMessage.classList.add('hidden'); }, 5000);
             });
